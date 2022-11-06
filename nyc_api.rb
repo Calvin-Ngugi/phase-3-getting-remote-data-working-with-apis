@@ -4,10 +4,12 @@ require 'net/http'
  
  class GetPrograms
 
-  URL = "http://data.cityofnewyork.us/resource/uvks-tn5n.json"
+  def initialize(url)
+    @url = url
+  end
 
   def get_programs
-    uri = URI.parse(URL)
+    uri = URI.parse(@url)
     response = Net::HTTP.get_response(uri)
     response.body
   end
